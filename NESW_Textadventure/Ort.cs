@@ -25,8 +25,8 @@ namespace TextAdventure
 
 		// Property für die Dinge, die in diesem Raum
 		// sind
-		Dictionary<string, Ding> dinge =
-			new Dictionary<string, Ding>();
+		Dictionary<string, IDing> dinge =
+			new Dictionary<string, IDing>();
 		
 
 		// -- Konstruktor des allgemeinen Ortes ohne Parameter

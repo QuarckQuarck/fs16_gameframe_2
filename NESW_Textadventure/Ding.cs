@@ -3,16 +3,34 @@ using TextAdventure;
 
 namespace TextAdventure
 {
-	public class Ding
+	// Interface
+	// Jedes Ding muss einen Namen besitzen
+	interface IDing
 	{
-		// Test
+		string name
+		{
+			get;
+			set;
+		}
+	}
+	
+	public class Ding : IDing
+	{
 		// -- Properties, die alle Dinge haben sollen
 		// Der Name eines Dings
-		public string name = "untitled item";
+		// Die Variable ist privat und kann nur ueber die vom Interface definierte Eigenschaft
+		// "name" gelesen werden
+		private string privateName = "untitled item";
 
 		public Ding ( string in_name )
 		{
-			name = in_name;
+			privateName = in_name;
+		}
+		
+		public string name
+		{
+			get { return privateName; }
+			set { privateName = value; }
 		}
 	}
 }
