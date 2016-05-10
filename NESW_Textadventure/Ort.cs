@@ -165,23 +165,42 @@ namespace TextAdventure
 			dinge[ in_ding.name ] = in_ding;
 		}
 
-		public bool IstDingKommando( string in_kommando ) {
+		public bool IstDingKommando( string in_kommando )
+		{
+			// String in mehrere Strings aufteilen mit 'Split()'
+			// Diese Methode benoetigt einen Character als Trennzeichen,
+			// um an dessen Ort den String zu teilen. Das Leerzeichen wird hier verwendet,
+			// da man davon ausgehen kann dass der Spieler seine Kommandoeingaben
+			// ebenfalls mit Leerzeichen trennt.
+			// Achtung einfache ('') und NICHT doppelte ("") Anfuehrungszeichen!
+			// Es ist ein Character (char) un kein String (string)...
+			String[] substrings = in_kommando.Split(' ');
 
-			// Teile das Kommando auf
-			// Teile an der Leertaste auf
-			// Resultat zwei einzelne Strings (können auch mehr sein)
-			// Nimm den zweiten Teil (... dritten, vierten)
+			// Die getrennten Zeichenketten werden in einem String Array gespeichert.
+			// Ja, man haette auch ein Lits<T> Objekt nehmen koennen.
+			// Faustregel: wenn List<T> nicht zwingend noetig, immer Array verwenden. (Schneller und so...)
+			// AUSSERDEM: Split() gibt mir immer einen String Array zurueck.
 
-			// Schlaufe durchs Dictionary dinge durch
-			// Namen aus dem Eintrag holen (Key)
-			// Vergleiche: Zweiter Teil in_kommando
-			//  mit Namen (Key von Eintrag)
-			// wenns passt
-			// Ding aus Eintrag holen ( Value)
+			// So...
+			// Mit einer foreach ("Fuer jedes Element ... in [array]") alle geteilten Kommandos auf
+			// auf ein vorhandenes Ding pruefen
+			foreach(var substring in substrings)
+			{
+				// Ist ein vom Spieler eingegebenes Kommando tatsaechlich ein Name eines Dings?
+				if(dinge.ContainsKey(substring))
+				{
+					// Abbruch und 'wahr' zurueckgeben
+					return true;
+				}
+			}
+
+			// Schleife durchgeraspelt und doch nichts gefunden?
+			// -> Kein Ding Kommando
 			return false;
 		}
 
-		public void BehandleDingKommando( string in_kommando ) {
+		public void BehandleDingKommando( string in_kommando )
+		{
 		}
 	}
 }
