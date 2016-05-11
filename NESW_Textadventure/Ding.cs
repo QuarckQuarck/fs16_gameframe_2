@@ -18,7 +18,7 @@ namespace TextAdventure
 			// parameterlosen Konstruktor haben können
 			// -- Alternative base (...)
 			// TODO
-			// -- nachschlagen im Nakov Buch
+			// -- nachschlagen im Nakov Buch s.810
 		}
 		public Ding ( string in_name )
 		{
