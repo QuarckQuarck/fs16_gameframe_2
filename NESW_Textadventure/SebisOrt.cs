@@ -68,4 +68,19 @@ namespace NESW_Text_live
 		}
 
 	}
+	{
+  	public class SebissDing: Ding
+  	{
+ 
+ 		public SebisDing (string in_name) : base(in_name)
+ 		
+ 		public SebisDing () 
+ 		{
+ 
+ 			name = "key";
+ 			beschrieb = "rusty and old";
+  		}
+  	}
+  }
+
 }
